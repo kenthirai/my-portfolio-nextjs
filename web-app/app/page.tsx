@@ -10,7 +10,7 @@ import {
   BlogSection,
   ContactSection,
   Footer
-} from './components'; // <-- Impor sederhana
+} from './components';
 
 type Section = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact';
 
@@ -49,10 +49,11 @@ export default function Home() {
     <>
       <Header currentSection={currentSection} onNavClick={handleNavClick} />
       <main>
+        {/* PERBAIKAN: Memastikan setiap komponen menerima props yang benar */}
         <HeroSection onNavClick={handleNavClick} sectionRef={sectionRefs.home} />
         <AboutSection sectionRef={sectionRefs.about} />
         <ServicesSection sectionRef={sectionRefs.services} />
-        <PricingSection sectionRef={sectionRefs.pricing} onNavClick={handleNavClick} />
+        <PricingSection onNavClick={handleNavClick} sectionRef={sectionRefs.pricing} />
         <BlogSection sectionRef={sectionRefs.blog} />
         <ContactSection sectionRef={sectionRefs.contact} />
       </main>
